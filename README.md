@@ -96,24 +96,24 @@ classDiagram
 ```
 
 ## プログラム　ピックアップ
-- `SoundSystem.cs`<br>
-  - **エントリーポイントとして全機能を統括するクラス**
+- **`SoundSystem.cs`**<br>
+  - **エントリーポイントとして全機能を統括**
   - `AudioMixer`のパラメータを取得,設定する機能を提供
 
-- `BGMManager.cs`<br>
+- **`BGMManager.cs`**<br>
   - **BGM管理,フェード・クロスフェード機能を提供**
 
-- `SEManager.cs`<br>
+- **`SEManager.cs`**<br>
   - **SE管理,オーディオプール機能を提供**
   - **オーディオプール機能** により、不要な `AudioSource` 作成を防ぐ
  
-- `ListenerEffector.cs`<br>
-  - `ApplyFilter<T>()` により **動的に任意のオーディオフィルタを追加**
+- **`ListenerEffector.cs`**<br>
+  - `ApplyFilter<T>()`により **動的に任意のオーディオフィルタを追加**
  
-- `SoundLoader.cs`<br>
+- **`SoundLoader.cs`**<br>
   - UniTask,Addressables を活用し、**非同期ロード / アンロードを実装**
   - `ISoundCache`との連携で、不要なロードを削減
 
-- `SoundCache.cs`<br>
-  - **ロード済み `AudioClip` のキャッシュを管理**
+- **`SoundCache.cs`**<br>
+  - **`AudioClip`のキャッシュを管理**
   - 最終アクセス時刻を記録し、一定時間未使用のリソースを自動解放
