@@ -126,6 +126,8 @@ classDiagram
   - 最終アクセス時刻を記録し、一定時間未使用のリソースを自動解放
 
 ## セットアップ<br>
+### 前提<br>
+プロジェクトにUniTask,Addressableを導入していることが前提
 ### ファイルをインポート<br>
 このリポジトリの`SoundSystem.unitypackage`をUnityエディタでインポート
 ### SoundSystem初期化<br>
