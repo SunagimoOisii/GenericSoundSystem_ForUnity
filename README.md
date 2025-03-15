@@ -120,7 +120,7 @@ classDiagram
 
 ## セットアップ<br>
 ### ファイルをインポート<br>
-このリポジトリの'SoundSystem.unitypackage'をUnityエディタでインポート
+このリポジトリの`SoundSystem.unitypackage`をUnityエディタでインポート
 ### SoundSystem初期化<br>
 `SoundSystem`を**直接インスタンス化し、** システムのセットアップ完了
 
