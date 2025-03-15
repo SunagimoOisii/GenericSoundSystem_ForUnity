@@ -1,7 +1,7 @@
 # GenericSoundSystem_ForUnity　🎵
 
 ## 概要
-Unityで使用できる汎用的なサウンドシステムです。<br>
+Unity向けのサウンドシステムです。<br>
 システムの詳細や工夫点は以下からもご確認いただけます。<br>
 [🔗 GenericSoundSystem_ForUnity 詳細（Notionページ）](https://picturesque-kayak-ac4.notion.site/195281634a16801e831bcebebff41161?pvs=4)
 
