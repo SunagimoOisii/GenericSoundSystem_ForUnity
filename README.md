@@ -11,7 +11,7 @@
 - Addressable
 - C#
 
-## リポジトリ構成(フォルダのみ記述)
+## システム構成
 ``` mermaid
 classDiagram
     %% SoundSystemを頂点として各クラスを描画
@@ -96,14 +96,33 @@ classDiagram
 ```
 
 ## プログラム　ピックアップ
-- `Test.cs`
-  - ここに解説
-  - ここに解説
+- `SoundSystem.cs`
+**エントリーポイントとして全サウンド管理を統括するクラス**
+　- **BGM / SE / AudioListenerEffector の統括管理**
+　- `AudioMixer` のパラメータを取得・設定するメソッドを提供
 
-- `Test.cs`
-  - ここに解説
-  - ここに解説
+- `BGMManager.cs`
+**BGM の管理、フェード / クロスフェード機能を提供**
+　- `UniTask` を活用した **非同期フェード処理**
+　- **BGM のクロスフェード機能** を搭載
 
-## 必要なライブラリについて
-本リポジトリのスクリプトでは、以下のアセットを利用しているものが含まれています。
-- **Test**：ここに用途を記述
+- `SEManager.cs`
+**効果音の管理とプール制御**
+  - **オーディオプール機能** により、不要な `AudioSource` 作成を防ぐ
+  - **一定時間未使用の AudioSource を削除する自動クリーンアップ**
+ 
+- `ListenerEffector.cs`
+**リアルタイムで `AudioListener` にエフェクトを適用**
+  - `ApplyFilter<T>()` により **任意のオーディオフィルタを追加**
+  - `DisableAllEffects()` でフィルターを一括無効化可能
+ 
+- `SoundLoader.cs`
+**非同期リソースロードを担当**
+  - Addressables を活用し、**非同期ロード / アンロードを実装**
+  - `ISoundCache` との連携により、不要なロードを削減
+
+- `SoundCache.cs`
+**ロード済み `AudioClip` のキャッシュを管理**
+  - 最終アクセス時刻を記録し、一定時間未使用のリソースを自動解放
+  - Addressables に対応した **リソース管理**
+  - 不要な `AudioClip` をメモリから開放し、メモリリークを防止
