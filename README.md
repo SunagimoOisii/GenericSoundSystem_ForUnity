@@ -117,3 +117,33 @@ classDiagram
 - **`SoundCache.cs`**<br>
   - **`AudioClip`のキャッシュを管理**
   - 最終アクセス時刻を記録し、一定時間未使用のリソースを自動解放
+
+## セットアップ<br>
+### ファイルをインポート<br>
+このリポジトリの'SoundSystem.unitypackage'をUnityエディタでインポート
+### SoundSystem初期化<br>
+`SoundSystem`を**直接インスタンス化し、** システムのセットアップ完了
+
+## 基本的な使い方<br>
+以下で言及するリソースアドレスはAddressableのもの
+### BGM再生
+``` C#
+//再生　引数：リソースアドレス,音量
+soundSystem.BGM.Play("address", 1.0f).Forget();
+//再生(フェードイン)　引数：リソースアドレス,フェード時間,最終的な音量,
+soundSystem.BGM.FadeIn("address", 2.0f, 1.0f).Forget();
+//クロスフェード　引数：リソースアドレス,フェード時間
+soundSystem.BGM.CrossFade("address", 2.0f).Forget();
+//停止
+soundSystem.BGM.Stop();
+```
+
+### SE再生
+``` C#
+soundSystem.SE.Play("address", Vector3.zero, 1.0f, 1.0f, 1.0f).Forget();
+soundSystem.SE.Play("address", new Vector3(2, 0, -1), 0.8f, 1.0f, 1.0f).Forget();
+```
+
+``` C#
+    soundSystem.BGM.Play("BGM_MainTheme", 1.0f).Forget();
+```
