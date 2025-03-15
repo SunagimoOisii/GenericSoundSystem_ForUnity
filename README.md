@@ -98,13 +98,13 @@ classDiagram
 ## プログラム　ピックアップ
 - `SoundSystem.cs`<br>
 **エントリーポイントとして全サウンド管理を統括するクラス**
-　- **BGM / SE / AudioListenerEffector の統括管理**
-　- `AudioMixer` のパラメータを取得・設定するメソッドを提供
+  - **BGM / SE / AudioListenerEffector の統括管理**
+  - `AudioMixer` のパラメータを取得・設定するメソッドを提供
 
 - `BGMManager.cs`<br>
 **BGM の管理、フェード / クロスフェード機能を提供**
-　- `UniTask` を活用した **非同期フェード処理**
-　- **BGM のクロスフェード機能** を搭載
+  - `UniTask` を活用した **非同期フェード処理**
+  - **BGM のクロスフェード機能** を搭載
 
 - `SEManager.cs`<br>
 **効果音の管理とプール制御**
