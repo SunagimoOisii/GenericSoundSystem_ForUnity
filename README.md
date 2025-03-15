@@ -143,3 +143,19 @@ soundSystem.BGM.Stop();
 //再生　引数：アドレス,再生座標,音量,音程,サラウンド度合い
 soundSystem.SE.Play("address", Vector3.zero, 1.0f, 1.0f, 1.0f).Forget();
 ```
+
+### AudioMixer
+``` C#
+//パラメータ取得　引数：パラメータ名
+float? volume = soundSystem.GetMixerParameter("MasterVolume");
+//パラメータ変更　引数：パラメータ名,設定値
+soundSystem.SetMixerParameter("MasterVolume", -10.0f);
+```
+
+### Effector
+``` C#
+//エフェクト適用(リバーブ)　引数：指定フィルターの設定を行う式
+soundSystem.Effector.ApplyFilter<AudioReverbFilter>(filter => filter.reverbLevel = 1000f);
+//エフェクト無効化
+soundSystem.Effector.DisableAllEffects();
+```
