@@ -128,11 +128,11 @@ classDiagram
 以下で言及するリソースアドレスはAddressableのもの
 ### BGM再生
 ``` C#
-//再生　引数：リソースアドレス,音量
+//再生　　　　　　　　引数：リソースアドレス,音量
 soundSystem.BGM.Play("address", 1.0f).Forget();
 //再生(フェードイン)　引数：リソースアドレス,フェード時間,最終的な音量,
 soundSystem.BGM.FadeIn("address", 2.0f, 1.0f).Forget();
-//クロスフェード　引数：リソースアドレス,フェード時間
+//クロスフェード　　　引数：リソースアドレス,フェード時間
 soundSystem.BGM.CrossFade("address", 2.0f).Forget();
 //停止
 soundSystem.BGM.Stop();
