@@ -11,7 +11,7 @@
 ## 概要
 Unity向けサウンドシステムです。<br><br>
 システムの詳細や工夫点は以下からもご確認いただけます。<br>
-[🔗 GenericSoundSystem_ForUnity 詳細（Notionページ）](https://picturesque-kayak-ac4.notion.site/195281634a16801e831bcebebff41161?pvs=4)
+[🔗 GenericSoundSystem_ForUnity 詳細(Notionページ)](https://picturesque-kayak-ac4.notion.site/195281634a16801e831bcebebff41161?pvs=4)
 
 ## 使用技術
 - UniTask
