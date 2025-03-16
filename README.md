@@ -18,7 +18,7 @@ Unity向けサウンドシステムです。<br><br>
 - Addressable
 - C#
 
-## 工夫点(上記Notionページからの抜粋)
+## 工夫点(上記Notionページより抜粋)
 - インターフェース(`ISoundLoader`,`ISoundCache`)による依存関係の緩和
 - 音声チャンネル(`AudioSource`)をオブジェクトプールで管理(`SEManager`)
 
