@@ -9,7 +9,7 @@
 - [基本的な使い方](#基本的な使い方)
 
 ## 概要
-Unity向けのサウンドシステムです。<br><br>
+Unity向けサウンドシステムです。<br><br>
 システムの詳細や工夫点は以下からもご確認いただけます。<br>
 [🔗 GenericSoundSystem_ForUnity 詳細（Notionページ）](https://picturesque-kayak-ac4.notion.site/195281634a16801e831bcebebff41161?pvs=4)
 
@@ -17,6 +17,10 @@ Unity向けのサウンドシステムです。<br><br>
 - UniTask
 - Addressable
 - C#
+
+## 工夫点(上記Notionページからの抜粋)
+- インターフェース(`ISoundLoader`,`ISoundCache`)による依存関係の緩和
+- 音声チャンネル(`AudioSource`)をオブジェクトプールで管理(`SEManager`)
 
 ## システム構成
 ``` mermaid
