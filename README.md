@@ -105,7 +105,6 @@ classDiagram
 ## プログラム--ピックアップ
 - **`SoundSystem.cs`**<br>
   - **エントリーポイントとして全機能を統括**
-  - `AudioMixer`のパラメータを取得,設定する機能を提供
 
 - **`SEManager.cs`**<br>
   - **SE管理,オーディオプール機能を提供**
@@ -116,8 +115,7 @@ classDiagram
   - `ISoundCache`との連携で、不要なロードを防ぐ(ロード対象がキャッシュにあれば再ロードしない)
 
 - **`ISoundLoader.cs,ISoundCache`**
-  - `BGMManager`,`SEManager`は`SoundLoader`、`SoundLoader`は`SoundCache`への依存があった
-  - そこで、これらのインターフェースを設けることで疎結合な関係に修正した
+  - `BGMManager`,`SEManager`は`SoundLoader`、`SoundLoader`は`SoundCache`への依存があったため、これらのインターフェースを設けることで疎結合な関係に修正した
 
 ## セットアップ<br>
 ### ０：前提<br>
