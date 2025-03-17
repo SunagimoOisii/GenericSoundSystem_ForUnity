@@ -3,7 +3,6 @@
 ## 目次
 - [概要](#概要)
 - [使用技術](#使用技術)
-- [工夫点](#工夫点)
 - [システム構成](#システム構成)
 - [プログラム　ピックアップ](#プログラム--ピックアップ)
 - [セットアップ](#セットアップ)
@@ -18,10 +17,6 @@ Unity向けサウンドシステムです。<br><br>
 - UniTask
 - Addressable
 - C#
-
-## 工夫点
-- インターフェース(`ISoundLoader`,`ISoundCache`)による依存関係の緩和
-- 音声チャンネル(`AudioSource`)をオブジェクトプールで管理(`SEManager`)
 
 ## システム構成
 ``` mermaid
@@ -112,23 +107,17 @@ classDiagram
   - **エントリーポイントとして全機能を統括**
   - `AudioMixer`のパラメータを取得,設定する機能を提供
 
-- **`BGMManager.cs`**<br>
-  - **BGM管理,フェード・クロスフェード機能を提供**
-
 - **`SEManager.cs`**<br>
   - **SE管理,オーディオプール機能を提供**
-  - **オーディオプール機能** により、不要な `AudioSource` 作成を防ぐ
- 
-- **`ListenerEffector.cs`**<br>
-  - `ApplyFilter<T>()`により **動的に任意のオーディオフィルタを追加**
+  - **オーディオプール機能**により、不要な`AudioSource`作成を防ぐ
  
 - **`SoundLoader.cs`**<br>
-  - UniTask,Addressables を活用し、**非同期ロード / アンロードを実装**
-  - `ISoundCache`との連携で、不要なロードを削減
+  - UniTask,Addressablesを活用し、**非同期ロード / アンロードを実装**
+  - `ISoundCache`との連携で、不要なロードを防ぐ(ロード対象がキャッシュにあれば再ロードしない)
 
-- **`SoundCache.cs`**<br>
-  - **`AudioClip`のキャッシュを管理**
-  - 最終アクセス時刻を記録し、一定時間未使用のリソースを自動解放
+- **`ISoundLoader.cs,ISoundCache`**
+  - `BGMManager`,`SEManager`は`SoundLoader`、`SoundLoader`は`SoundCache`への依存があった
+  - そこで、これらのインターフェースを設けることで疎結合な関係に修正した
 
 ## セットアップ<br>
 ### ０：前提<br>
