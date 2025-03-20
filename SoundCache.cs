@@ -3,10 +3,10 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 
 /// <summary>
-/// ƒTƒEƒ“ƒhƒŠƒ\[ƒX‚ÌƒLƒƒƒbƒVƒ…ŠÇ—‚ğ’S‚¤ƒNƒ‰ƒX<para></para>
-/// - AudioClip‚ğƒL[‚Æ‚µ‚ÄƒLƒƒƒbƒVƒ…‚µAÄ—˜—p‰Â”\‚É<para></para>
-/// - ƒAƒNƒZƒXŠÔ‚ÉŠî‚Ã‚­–¢g—pƒŠƒ\[ƒX‚ÌƒNƒŠ[ƒ“ƒAƒbƒv‚ª‰Â”\<para></para>
-/// - Addressables‚ğ‰î‚µ‚½ƒŠƒ\[ƒX‰ğ•ú‹@”\‚ğ’ñ‹Ÿ
+/// ã‚µã‚¦ãƒ³ãƒ‰ãƒªã‚½ãƒ¼ã‚¹ã®ã‚­ãƒ£ãƒƒã‚·ãƒ¥ç®¡ç†ã‚’æ‹…ã†ã‚¯ãƒ©ã‚¹<para></para>
+/// - AudioClipã‚’ã‚­ãƒ¼ã¨ã—ã¦ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã—ã€å†åˆ©ç”¨å¯èƒ½ã«<para></para>
+/// - ã‚¢ã‚¯ã‚»ã‚¹æ™‚é–“ã«åŸºã¥ãæœªä½¿ç”¨ãƒªã‚½ãƒ¼ã‚¹ã®ã‚¯ãƒªãƒ¼ãƒ³ã‚¢ãƒƒãƒ—ãŒå¯èƒ½<para></para>
+/// - Addressablesã‚’ä»‹ã—ãŸãƒªã‚½ãƒ¼ã‚¹è§£æ”¾æ©Ÿèƒ½ã‚’æä¾›
 /// </summary>
 public class SoundCache : ISoundCache
 {
@@ -14,31 +14,26 @@ public class SoundCache : ISoundCache
     private readonly Dictionary<string, float> lastAccessTime = new();
 
     /// <summary>
-    /// w’èƒŠƒ\[ƒX‚ğƒLƒƒƒbƒVƒ…‚©‚çæ“¾‚·‚é<para></para>
-    /// æ“¾‚ÉÅIƒAƒNƒZƒXŠÔ‚àXV‚·‚é
+    /// æŒ‡å®šãƒªã‚½ãƒ¼ã‚¹ã‚’ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã‹ã‚‰å–å¾—ã™ã‚‹<para></para>
+    /// å–å¾—æ™‚ã«æœ€çµ‚ã‚¢ã‚¯ã‚»ã‚¹æ™‚é–“ã‚‚æ›´æ–°ã™ã‚‹
     /// </summary>
     public AudioClip Retrieve(string resourceAddress)
     {
         if (cache.TryGetValue(resourceAddress, out var clip))
         {
-            UpdateAccessTime(resourceAddress);
+            lastAccessTime[resourceAddress] = Time.time;
             return clip;
         }
         return null;
     }
 
     /// <summary>
-    /// w’èƒŠƒ\[ƒX‚ğƒLƒƒƒbƒVƒ…‚É’Ç‰Á‚·‚é<para></para>
-    /// æ“¾‚ÉÅIƒAƒNƒZƒXŠÔ‚àXV‚·‚é
+    /// æŒ‡å®šãƒªã‚½ãƒ¼ã‚¹ã‚’ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã«è¿½åŠ ã™ã‚‹<para></para>
+    /// å–å¾—æ™‚ã«æœ€çµ‚ã‚¢ã‚¯ã‚»ã‚¹æ™‚é–“ã‚‚æ›´æ–°ã™ã‚‹
     /// </summary>
     public void Add(string resourceAddress, AudioClip clip)
     {
         cache[resourceAddress] = clip;
-        UpdateAccessTime(resourceAddress);
-    }
-
-    private void UpdateAccessTime(string resourceAddress)
-    {
         lastAccessTime[resourceAddress] = Time.time;
     }
 
