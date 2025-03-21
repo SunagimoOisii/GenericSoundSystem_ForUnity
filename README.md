@@ -117,6 +117,9 @@ classDiagram
 - **`ISoundLoader.cs,ISoundCache`**
   - `BGMManager`,`SEManager`は`SoundLoader`、`SoundLoader`は`SoundCache`への依存があったため、これらのインターフェースを設けることで疎結合な関係に修正した
 
+- **`Test_SoundSystem.cs`**<br>
+  - Unityでシステムを簡単に試すためのプログラム
+
 ## セットアップ<br>
 ### ０：前提<br>
 プロジェクトにUniTask,Addressableを導入していることが前提
